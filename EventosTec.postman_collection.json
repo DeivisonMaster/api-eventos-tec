@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "578e156f-6177-4265-b1a0-90b604483044",
+		"name": "EventosTec",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7129537"
+	},
+	"item": [
+		{
+			"name": "Novo Evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "titulo",
+							"value": "Frontin Sampa ",
+							"type": "text"
+						},
+						{
+							"key": "data",
+							"value": "2022-11-02T20:10:10",
+							"type": "text"
+						},
+						{
+							"key": "descricao",
+							"value": "teste 2",
+							"type": "text"
+						},
+						{
+							"key": "cidade",
+							"value": "São Paulo",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "SP",
+							"type": "text"
+						},
+						{
+							"key": "urlEvento",
+							"value": "https://frontinsampa.com.br",
+							"type": "text"
+						},
+						{
+							"key": "remoto",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "imagem",
+							"type": "file",
+							"src": "/C:/Users/Master/Downloads/frontin-sampa1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Paginado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/eventos/paginado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos",
+						"paginado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Eventos Futuro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/eventos/eventos-por-vir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos",
+						"eventos-por-vir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Novo Cupom Associado ao Evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigo\": 12345,\r\n    \"desconto\": 15,\r\n    \"validade\": \"2027-11-02T20:10:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cupons/evento/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cupons",
+						"evento",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/eventos/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
