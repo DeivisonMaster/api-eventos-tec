@@ -60,7 +60,7 @@ public class EventoServico {
 		
 		Evento evento = new Evento();
 		evento.setTitulo(eventoDTO.titulo());
-		evento.setData(obtemDataParaEvento(eventoDTO));
+		evento.setData(obtemDataParaEvento(eventoDTO.data()));
 		evento.setDescricao(eventoDTO.descricao());
 		evento.setRemoto(eventoDTO.remoto());
 		evento.setUrlEvento(eventoDTO.urlEvento());
@@ -75,9 +75,9 @@ public class EventoServico {
 		return evento;
 	}
 
-	private OffsetDateTime obtemDataParaEvento(EventoRequisicaoDTO eventoDTO) {
+	private OffsetDateTime obtemDataParaEvento(String data) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-		LocalDateTime datetime = LocalDateTime.parse(eventoDTO.data(), formatter);
+		LocalDateTime datetime = LocalDateTime.parse(data, formatter);
 		ZoneOffset offset = ZoneId.of("UTC").getRules().getOffset(datetime);
 		return OffsetDateTime.of(datetime , offset);
 	}
@@ -176,6 +176,10 @@ public class EventoServico {
 				evento.isRemoto(),
 				evento.getData(),
 				cuponsDTO);
+	}
+
+	public List<Evento> listarPorFiltro(String uf, String cidade, String dataFim) {
+		return this.eventoRepositorio.eventosPorFiltro(uf, cidade, OffsetDateTime.now(), obtemDataParaEvento(dataFim));
 	}
 
 }

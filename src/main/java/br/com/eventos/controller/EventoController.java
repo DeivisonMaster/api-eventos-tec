@@ -63,4 +63,11 @@ public class EventoController {
 		return ResponseEntity.ok(eventoService.buscaDetalhesEvento(id));
 	}
 	
+	@GetMapping("/filtro")
+	public ResponseEntity<List<Evento>> listarPorFiltro(@RequestParam("uf") String uf,
+				@RequestParam("cidade") String cidade,
+				@RequestParam("dataFim") String dataFim){
+		return ResponseEntity.ok(eventoService.listarPorFiltro(uf, cidade, dataFim));
+	}
+	
 }
